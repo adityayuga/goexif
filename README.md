@@ -4,20 +4,20 @@ goexif
 Provides decoding of basic exif and tiff encoded data. Still in alpha - no guarantees.
 Suggestions and pull requests are welcome.  Functionality is split into two packages - "exif" and "tiff"
 The exif package depends on the tiff package. 
-Documentation can be found at http://godoc.org/github.com/rwcarlsen/goexif
+Documentation can be found at http://godoc.org/github.com/adityayuga/goexif
 
 Like goexif? - Bitcoin tips welcome: 17w65FVqx196Qp7tfCCSLqyvsHUhiEEa7P
 
 To install, in a terminal type:
 
 ```
-go get github.com/rwcarlsen/goexif/exif
+go get github.com/adityayuga/goexif/exif
 ```
 
 Or if you just want the tiff package:
 
 ```
-go get github.com/rwcarlsen/goexif/tiff
+go get github.com/adityayuga/goexif/tiff
 ```
 
 Example usage:
@@ -30,8 +30,8 @@ import (
 	"log"
 	"os"
 
-	"github.com/rwcarlsen/goexif/exif"
-	"github.com/rwcarlsen/goexif/mknote"
+	"github.com/adityayuga/goexif/exif"
+	"github.com/adityayuga/goexif/mknote"
 )
 
 func ExampleDecode() {

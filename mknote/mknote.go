@@ -4,8 +4,8 @@ package mknote
 import (
 	"bytes"
 
-	"github.com/rwcarlsen/goexif/exif"
-	"github.com/rwcarlsen/goexif/tiff"
+	"github.com/adityayuga/goexif/exif"
+	"github.com/adityayuga/goexif/tiff"
 )
 
 var (
@@ -53,9 +53,7 @@ type nikonV3 struct{}
 // Parse decodes all Nikon makernote data found in x and adds it to x.
 func (_ *nikonV3) Parse(x *exif.Exif) error {
 	m, err := x.Get(exif.MakerNote)
-	if err != nil {
-		return nil
-	} else if bytes.Compare(m.Val[:6], []byte("Nikon\000")) != 0 {
+	if err != nil || len(m.Val) < 6 || bytes.Compare(m.Val[:6], []byte("Nikon\000")) != 0 {
 		return nil
 	}
 
