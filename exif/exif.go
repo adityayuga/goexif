@@ -14,6 +14,7 @@ import (
 	"math"
 	"strconv"
 	"strings"
+	"sync"
 	"time"
 
 	"github.com/adityayuga/goexif/tiff"
@@ -72,10 +73,14 @@ func init() {
 	RegisterParsers(&parser{})
 }
 
+var lock sync.Mutex
+
 // RegisterParsers registers one or more parsers to be automatically called
 // when decoding EXIF data via the Decode function.
 func RegisterParsers(ps ...Parser) {
+	lock.Lock()
 	parsers = append(parsers, ps...)
+	lock.Unlock()
 }
 
 type parser struct{}
